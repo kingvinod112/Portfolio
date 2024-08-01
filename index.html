@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Vinod Kumar, a web developer specializing in creating dynamic and responsive web applications.">
+    <meta name="keywords" content="web developer, King vinod, vinod kumar, T Vinod Kumar portfolio, HTML, CSS, Java, Spring Boot">
+    <title>My Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+            background-color: #f0f8ff; /* Light background color */
+        }
+        .hero {
+            background: #e0f7fa; /* Light cyan background */
+            padding: 80px 0;
+            text-align: center; /* Center text on mobile */
+            color: #00796b; /* Darker cyan for text */
+            display: flex;
+            flex-direction: row; /* Align items in a row for larger screens */
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Space between text and image */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        }
+
+        .hero-content {
+            max-width: 60%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            /* Gradient text effect */
+            background: linear-gradient(45deg, #f77ab8, #ff8c00, #32cd32, #00bfff, #8a2be2, #f304df, #559009, #20b9a2, #1f1588);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: color-change 26s ease infinite;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .hero img.hero-image {
+            max-width: 220px;
+            height: 280px;
+            border-radius: 10%;
+            padding: 10px; /* Added padding around the image */
+            margin: auto; /* Center image */
+        }
+
+        @keyframes color-change {
+            0% { background-position: 0% 0%; }
+            20% { background-position: 100% 0%; }
+            40% { background-position: 100% 100%; }
+            60% { background-position: 0% 100%; }
+            80% { background-position: 0% 0%; }
+            100% { background-position: 100% 0%; }
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .navbar {
+            background: #ffffff; /* White background for navbar */
+            border-bottom: 2px solid #b2ebf2; /* Light cyan border */
+        }
+
+        .navbar-nav {
+            margin-left: auto; /* Align items to the right */
+        }
+
+        .navbar-nav .nav-link {
+            color: #00796b !important; /* Darker cyan for links */
+            font-weight: 500;
+            margin: 0 15px; /* Spacing between nav items */
+            transition: color 0.3s, transform 0.3s;
+            font-size: 1.2rem; /* Increased font size */
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #004d40 !important; /* Even darker cyan on hover */
+            transform: scale(1.1); /* Slight zoom effect on hover */
+        }
+
+        .navbar-brand {
+            color: #00796b !important; /* Darker cyan for brand name */
+            font-weight: 700;
+        }
+
+        .navbar-brand:hover {
+            color: #004d40 !important; /* Darker cyan on hover */
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            transition: height 0.5s ease, box-shadow 0.3s ease;
+            height: 300px; /* Initial height */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px; /* Spacing between cards */
+        }
+
+        .card:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
+            height: 500px; /* Expanded height on hover */
+        }
+
+        .card-img-top {
+            height: 150px;
+            object-fit: cover; /* Ensures images cover the area */
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-text {
+            max-height: 60px; /* Height of visible text before hover */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Show ellipsis for overflow text */
+            margin-bottom: 15px; /* Space for the button */
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+        }
+
+        .card:hover .card-text {
+            max-height: 0; /* Hide the small description on hover */
+            opacity: 0; /* Fade out the small description */
+        }
+
+        .card-description {
+            max-height: 0; /* Hidden by default */
+            overflow-y: auto; /* Scrollable content */
+            padding: 0 15px;
+            transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.3s ease;
+            opacity: 0; /* Hidden initially */
+        }
+
+        .card:hover .card-description {
+            max-height: 300px; /* Adjust as needed */
+            padding: 15px; /* Add padding when expanded */
+            opacity: 1; /* Fade in the expanded description */
+        }
+
+        .card-description p {
+            margin: 0;
+        }
+
+        .btn-view-project {
+            background-color: #00796b; /* Darker cyan for the button */
+            color: #ffffff; /* White text */
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            transition: background-color 0.3s;
+            margin-top: 20px; /* Pushes button to the bottom */
+        }
+
+        .btn-view-project:hover {
+            background-color: #004d40; /* Even darker cyan on hover */
+            color: aqua;
+        }
+
+        .skill-box {
+            background-color: #b2dfdb; /* Light cyan background for skills */
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1.1rem; /* Increased font size */
+        }
+
+        .skill-box:hover {
+            background-color: #80cbc4; /* Darker cyan on hover */
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        .contact-item {
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px); /* Slight lift effect */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        }
+
+        .contact-item i {
+            color: #00796b; /* Primary color for icons */
+        }
+
+        .contact-item h5 {
+            font-weight: bold;
+            color: #00796b; /* Match icon color */
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: #004d40;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #00796b; /* Change color on hover */
+        }
+
+        .btn-check-resume {
+            background-color: #00796b; /* Darker cyan for the button */
+            color: #ffffff; /* White text */
+            border: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-check-resume:hover {
+            background-color: #004d40; /* Even darker cyan on hover */
+            color: aqua;
+        }
+
+        .section-spacing {
+            margin-bottom: 50px; /* Adjust margin as needed */
+        }
+
+        .section-spacing:last-child {
+            margin-bottom: 0; /* No space below the last section */
+        }
+
+        .resume-section {
+            background-color: #f0f8ff; /* Light background color for resume page */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .resume-buttons {
+            margin-top: 20px;
+        }
+
+        .resume-buttons a {
+            background-color: #00796b;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .resume-buttons a:hover {
+            background-color: #004d40;
+        }
+
+        .footer-style {
+            background-color: #00796b; /* Darker cyan background for the footer */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem; /* Adjust font size on smaller screens */
+        }
+
+        @media (max-width: 767px) {
+            .hero-content {
+                max-width: 100%; /* Full width on small screens */
+            }
+
+            .hero h1 {
+                font-size: 2rem; /* Smaller font size on mobile */
+            }
+
+            .hero p {
+                font-size: 1rem; /* Smaller font size on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+       <!-- Navbar -->
+       <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#resume">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div id="home" class="hero">
+        <div class="hero-content">
+            <h1>
+                Hello I'm <span class="font-weight-bold">Vinod Kumar</span> 
+            </h1>
+            <h2>a Web Developer</h2>
+            <p class="lead m-4">
+                Hi there! I'm Vinod Kumar, a web developer who brings dynamic, responsive, and innovative solutions to life. Dive into my portfolio to see how my creativity and technical expertise can transform your digital ideas into reality.
+            </p>
+        </div>
+        <!-- Profile Image -->
+        <img src="/Lab Puppy.jpg" alt="Vinod Kumar" class="hero-image">
+    </div>
+
+    <!-- Projects Section -->
+    <div id="projects" class="section section-spacing">
+        <div class="container">
+            <h2 class="text-center mb-5">Projects</h2> <!-- Added margin bottom -->
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="FresherBot Website Clone">
+                        <div class="card-body">
+                            <h5 class="card-title">FresherBot Website Clone</h5>
+                            <p class="card-text">I created a FresherBot website clone using HTML and CSS to showcase my web development skills. The clone features a modern design with interactive elements...</p>
+                            <div class="card-description">
+                                <p>I created a FresherBot website clone using HTML and CSS to showcase my web development skills. The clone features a modern design with interactive elements. This project focused on replicating the design and functionality of the FresherBot website. The clone features a clean, modern design with interactive elements, making it a great example of my skills in HTML and CSS. The responsive layout ensures that the website is accessible and looks good on all devices, from desktops to smartphones.</p>
+                                <a href="#" class="btn btn-view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Sentence Evaluator">
+                        <div class="card-body">
+                            <h5 class="card-title">Sentence Evaluator</h5>
+                            <p class="card-text">Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This enhanced user interaction and engagement...</p>
+                            <div class="card-description">
+                                <p>Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This project enhanced user interaction and engagement. This project is a web application designed to process and analyze text input by users. It allows for various text transformations and provides detailed character count analysis. The use of advanced Java techniques and JSP for server-side processing ensures that the application is efficient and responsive, offering a seamless user experience.</p>
+                                <a href="#" class="btn btn-view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Blog Management Web Application">
+                        <div class="card-body">
+                            <h5 class="card-title">Blog Management Web Application</h5>
+                            <p class="card-text">Developed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities...</p>
+                            <div class="card-description">
+                                <p>Developed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities. This application is a comprehensive blog management system built with Spring Boot. It includes features for creating, editing, and deleting blog posts, as well as user authentication to secure content management. The integration of HTML and JSP ensures a dynamic and user-friendly interface, while SQL is used for reliable data management. This project demonstrates my ability to develop full-stack applications with robust functionality.</p>
+                                <a href="#" class="btn btn-view-project">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div id="about" class="section section-spacing bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">About Me</h2> <!-- Added margin bottom -->
+            <p class="text-center">I am a web developer with a passion for creating dynamic and responsive websites. My skills include a range of technologies that enable me to build both front-end and back-end solutions.</p>
+            <div class="text-center">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="skill-box">HTML</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="skill-box">CSS</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="skill-box">MySQL</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="skill-box">Core Java</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="skill-box">Advanced Java</div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="skill-box">Spring Boot</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Section -->
+    <div id="resume" class="section section-spacing">
+        <div class="container text-center">
+            <h2 class="mb-4">Resume</h2> <!-- Decreased margin bottom -->
+            <p>Check out my resume to understand more about my education, skills, and projects as I embark on my professional journey.</p>
+            <a href="resume.html" class="btn btn-check-resume">Check Resume</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="section section-spacing bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Me</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="contact-item bg-white p-4 rounded shadow-sm mb-4">
+                        <i class="fas fa-phone-alt fa-2x mb-3 text-primary"></i>
+                        <h5>Phone</h5>
+                        <a href="tel:+917995985776" class="d-block text-dark">+91 7995985776</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-item bg-white p-4 rounded shadow-sm mb-4">
+                        <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
+                        <h5>Email</h5>
+                        <a href="mailto:kingvinodkumart@gmail.com" class="d-block text-dark">kingvinodkumart@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="contact-item bg-white p-4 rounded shadow-sm mb-4">
+                        <i class="fab fa-instagram fa-2x mb-3 text-primary"></i>
+                        <h5>Instagram</h5>
+                        <a href="https://www.instagram.com/Kingvinod112" target="_blank" class="d-block text-dark">Kingvinod112</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <footer class="text-center py-4 footer-style">
+        <div class="container">
+            <p>&copy; 2024 Vinod Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>
