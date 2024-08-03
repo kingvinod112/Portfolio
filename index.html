@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,10 +116,21 @@
             height: 500px; /* Expanded height on hover */
         }
 
+        /* Add border frame for videos in the Projects Section */
         .card-img-top {
             height: 150px;
-            object-fit: cover; /* Ensures images cover the area */
+            object-fit: cover;
+            width: 100%;
+            border: 2px solid black; /* Black border frame around the video */
+            box-sizing: border-box; /* Ensure the border is included in the element's total width and height */
+            transition: border 0.3s ease; /* Smooth transition for border color change */
         }
+
+        /* Adjust border frame on hover */
+        .card:hover .card-img-top {
+            border-color: #004d40; /* Darker cyan border on hover */
+        }
+
 
         .card-body {
             display: flex;
@@ -286,6 +298,10 @@
             .hero p {
                 font-size: 1rem; /* Smaller font size on mobile */
             }
+            .card-img-top {
+                height: 220px; /* Adjust height for smaller screens */
+                border-width: 3px; /* Thinner border for smaller screens */
+            }
         }
     </style>
 </head>
@@ -339,20 +355,20 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="FresherBot Website Clone">
+                        <video class="card-img-top" src="/FresherDemo.mp4" alt="FresherBot Website Clone" loop autoplay muted></video>
                         <div class="card-body">
                             <h5 class="card-title">FresherBot Website Clone</h5>
                             <p class="card-text">I built a clone of the FresherBot website using HTML and CSS to show off my web development skills...</p>
                             <div class="card-description">
                                 <p>I built a clone of the FresherBot website using HTML and CSS to show off my web development skills. The clone has a modern look with interactive features. It closely mirrors the original FresherBot site in both design and function. The clean, modern design and responsive layout ensure it looks great on any device, from desktops to smartphones.</p>
-                                <a href="#" class="btn btn-view-project">View Project</a>
+                                <a href="FresherBot.html" class="btn btn-view-project">View Project</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Sentence Evaluator">
+                        <video class="card-img-top" src="/FresherDemo.mp4" alt="Sentence Evaluator" loop autoplay muted></video>
                         <div class="card-body">
                             <h5 class="card-title">Sentence Evaluator</h5>
                             <p class="card-text">Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This enhanced user interaction and engagement...</p>
@@ -365,10 +381,10 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Blog Management Web Application">
+                        <video class="card-img-top" src="/FresherDemo.mp4" alt="Blog Management Web Application" loop autoplay muted></video>
                         <div class="card-body">
                             <h5 class="card-title">Blog Management Web Application</h5>
-                            <p class="card-text">Developed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities...</p>
+                            <p class="card-text">Developxed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities...</p>
                             <div class="card-description">
                                 <p>Developed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities. This application is a comprehensive blog management system built with Spring Boot. It includes features for creating, editing, and deleting blog posts, as well as user authentication to secure content management. The integration of HTML and JSP ensures a dynamic and user-friendly interface, while SQL is used for reliable data management. This project demonstrates my ability to develop full-stack applications with robust functionality.</p>
                                 <a href="#" class="btn btn-view-project">View Project</a>
