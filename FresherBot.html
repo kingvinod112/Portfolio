@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FresherBot Page</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Heading Styling */
+        .custom-heading {
+            text-align: center;
+            color: #000;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        /* Smooth gradient border animation for video */
+        @keyframes smoothGradientBorder {
+            0% { background: linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055); }
+            25% { background: linear-gradient(45deg, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055, #ff6600); }
+            50% { background: linear-gradient(45deg, #33cc33, #00ccff, #9900cc, #ff0055, #ff6600, #33cc33); }
+            75% { background: linear-gradient(45deg, #00ccff, #9900cc, #ff0055, #ff6600, #33cc33, #00ccff); }
+            100% { background: linear-gradient(45deg, #9900cc, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc); }
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            margin: 40px 0;
+            border: 5px solid transparent;
+            border-radius: 15px;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
+            animation: smoothGradientBorder 8s linear infinite;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        /* Content Section Styling */
+        .content-section {
+            padding: 50px 20px;
+            margin: 30px 0;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 3px solid #333;
+            border-radius: 15px;
+            transition: transform 0.3s, border 0.3s;
+        }
+
+        .content-section img:hover {
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
+            background-clip: border-box;
+            transform: scale(1.05);
+        }
+
+        /* Center the About title */
+        .content-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        /* Flex container adjustment for alignment */
+        .content-section.d-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-section .image,
+        .content-section .text {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .content-section .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .content-section .text p {
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .custom-heading {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin: 20px 0;
+            }
+
+            .content-section .text p {
+                max-width: 100%;
+            }
+        }
+
+        /* Button Styling */
+        .btn-custom {
+            background-color: #28a745; /* Bright green color */
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: bold;
+           
+            border: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            display: inline-block;
+        }
+
+        .btn-custom:hover {
+            background-color: #218838; /* Darker green on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: #fff;
+            border-top: 2px solid #495057;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer p a {
+            color: #ffc107;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer p a:hover {
+            color: #fff;
+        }
+
+        /* Center footer button */
+        .footer-button-container {
+            margin: 20px;
+
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Heading at the top -->
+    <header>
+        <h1 class="custom-heading">FresherBot <a href="index.html" class="btn btn-custom">Back</a></h1>
+    </header>
+
+    <!-- Video Container -->
+    <div class="container">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="/FresherBotFull.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- About the Project -->
+    <div class="container">
+        <div class="content-section">
+            <h2>About This Project</h2>
+            <p>This project is a dedicated clone of the FresherBot website, capturing its distinctive look and feel. While this clone aims to replicate the design and layout of the original, it focuses primarily on visual accuracy rather than functional completeness. The effort highlights our ability to mirror the aesthetics of an established web platform.</p>
+            <p>We have carefully designed this clone to reflect the layout, color scheme, and overall style of the FresherBot website. The design elements, such as the video sections, image placements, and text flow, have been recreated to maintain visual consistency and user experience. While not fully interactive, it offers a strong visual representation of the original.</p>
+            <p>This project serves as a demonstration of our web design skills, showcasing our attention to detail and design precision. Future updates may focus on enhancing functionality and interactivity based on feedback and further development, building upon the solid foundation laid by this clone.</p>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="container">
+        <!-- Section 1: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="/Fresher1.png" alt="Description of image 1">
+            </div>
+            <div class="text">
+                <p>The "Fresher Bot" homepage offers a sleek, modern interface for fresh graduates. It features easy access to "Job Openings," "Hackathons," and "Interview Prep," with intuitive navigation for candidates, employers, and colleges. The design is clean and inviting, perfect for job seekers.</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>The "Latest Openings" section features recent job postings with concise descriptions, locations, and "Active" status labels. The clean layout makes it easy to browse, with a link at the bottom to "View all jobs" for more options.</p>
+            </div>
+            <div class="image">
+                <img src="/Fresher2.png" alt="Description of image 2">
+            </div>
+        </div>
+
+        <!-- Section 3: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="/Fresher3.png" alt="Description of image 3">
+            </div>
+            <div class="text">
+                <p>I created this section to highlight why FresherBot is a great choice. It covers verified job openings, positive feedback, and clear terms to ensure trust and transparency.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>In this part, I've added resources for interview prep, including study materials, video lessons, and practice tests, to help you get ready for your next big opportunity.</p>
+            </div>
+            <div class="image">
+                <img src="/Fresher4.png" alt="Description of image 4">
+            </div>
+        </div>
+
+        <!-- Section 5: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="/Fresher5.png" alt="Description of image 5">
+            </div>
+            <div class="text">
+                <p>Here's a collection of feedback from satisfied users who found jobs through FresherBot. Their positive experiences highlight the effectiveness of the platform and the support provided.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Button -->
+    <div class="footer-button-container">
+        <a href="index.html" class="btn btn-custom">Back</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Vinod Kumar. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
