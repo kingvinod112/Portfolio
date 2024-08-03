@@ -1,482 +1,284 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Vinod Kumar, a web developer specializing in creating dynamic and responsive web applications.">
-    <meta name="keywords" content="web developer, Kingvinod112, vinod kumar, T Vinod Kumar portfolio, HTML, CSS, Java, Spring Boot">
-    <title>My Portfolio</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <title>FresherBot Page</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        html {
-            scroll-behavior: smooth;
-             }
+        /* General Body Styling */
         body {
-            padding-top: 56px;
-            background-color: #f0f8ff; /* Light background color */
-        }
-        .hero {
-            background: #e0f7fa; /* Light cyan background */
-            padding: 80px 0;
-            text-align: center; /* Center text on mobile */
-            color: #00796b; /* Darker cyan for text */
-            display: flex;
-            flex-direction: row; /* Align items in a row for larger screens */
-            align-items: center; /* Center items vertically */
-            justify-content: space-between; /* Space between text and image */
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-        }
-
-        .hero-content {
-            max-width: 60%;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            /* Gradient text effect */
-            background: linear-gradient(45deg, #f77ab8, #ff8c00, #32cd32, #00bfff, #8a2be2, #f304df, #559009, #20b9a2, #1f1588);
-            background-size: 600% 600%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: color-change 26s ease infinite;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-        }
-
-        .hero img.hero-image {
-            max-width: 220px;
-            height: 280px;
-            border-radius: 10%;
-            padding: 10px; /* Added padding around the image */
-            margin: auto; /* Center image */
-        }
-
-        @keyframes color-change {
-            0% { background-position: 0% 0%; }
-            20% { background-position: 100% 0%; }
-            40% { background-position: 100% 100%; }
-            60% { background-position: 0% 100%; }
-            80% { background-position: 0% 0%; }
-            100% { background-position: 100% 0%; }
-        }
-
-        .section {
-            padding: 60px 0;
-        }
-
-        .navbar {
-            background: #ffffff; /* White background for navbar */
-            border-bottom: 2px solid #b2ebf2; /* Light cyan border */
-        }
-
-        .navbar-nav {
-            margin-left: auto; /* Align items to the right */
-        }
-
-        .navbar-nav .nav-link {
-            color: #00796b !important; /* Darker cyan for links */
-            font-weight: 500;
-            margin: 0 15px; /* Spacing between nav items */
-            transition: color 0.3s, transform 0.3s;
-            font-size: 1.2rem; /* Increased font size */
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #004d40 !important; /* Even darker cyan on hover */
-            transform: scale(1.1); /* Slight zoom effect on hover */
-        }
-
-        .navbar-brand {
-            color: #00796b !important; /* Darker cyan for brand name */
-            font-weight: 700;
-        }
-
-        .navbar-brand:hover {
-            color: #004d40 !important; /* Darker cyan on hover */
-        }
-
-        .card {
-            position: relative;
-            overflow: hidden;
-            transition: height 0.5s ease, box-shadow 0.3s ease;
-            height: 300px; /* Initial height */
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 20px; /* Spacing between cards */
-        }
-
-        .card:hover {
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect on hover */
-            height: 500px; /* Expanded height on hover */
-        }
-
-        /* Add border frame for videos in the Projects Section */
-        .card-img-top {
-            height: 150px;
-            object-fit: cover;
-            width: 100%;
-            border: 2px solid black; /* Black border frame around the video */
-            box-sizing: border-box; /* Ensure the border is included in the element's total width and height */
-            transition: border 0.3s ease; /* Smooth transition for border color change */
-        }
-
-        /* Adjust border frame on hover */
-        .card:hover .card-img-top {
-            border-color: #004d40; /* Darker cyan border on hover */
-        }
-
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card-text {
-            max-height: 60px; /* Height of visible text before hover */
-            overflow: hidden;
-            text-overflow: ellipsis; /* Show ellipsis for overflow text */
-            margin-bottom: 15px; /* Space for the button */
-            transition: max-height 0.3s ease, opacity 0.3s ease;
-        }
-
-        .card:hover .card-text {
-            max-height: 0; /* Hide the small description on hover */
-            opacity: 0; /* Fade out the small description */
-        }
-
-        .card-description {
-            max-height: 0; /* Hidden by default */
-            overflow-y: auto; /* Scrollable content */
-            padding: 0 15px;
-            transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.3s ease;
-            opacity: 0; /* Hidden initially */
-        }
-
-        .card:hover .card-description {
-            max-height: 300px; /* Adjust as needed */
-            padding: 15px; /* Add padding when expanded */
-            opacity: 1; /* Fade in the expanded description */
-        }
-
-        .card-description p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f0f2f5;
             margin: 0;
+            padding: 0;
         }
 
-        .btn-view-project {
-            background-color: #00796b; /* Darker cyan for the button */
-            color: #ffffff; /* White text */
-            border: none;
-            padding: 10px 20px;
+        /* Heading Styling */
+        .custom-heading {
             text-align: center;
-            transition: background-color 0.3s;
-            margin-top: 20px; /* Pushes button to the bottom */
+            color: #000;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-transform: uppercase;
         }
 
-        .btn-view-project:hover {
-            background-color: #004d40; /* Even darker cyan on hover */
-            color: aqua;
+        /* Smooth gradient border animation for video */
+        @keyframes smoothGradientBorder {
+            0% { background: linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055); }
+            25% { background: linear-gradient(45deg, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055, #ff6600); }
+            50% { background: linear-gradient(45deg, #33cc33, #00ccff, #9900cc, #ff0055, #ff6600, #33cc33); }
+            75% { background: linear-gradient(45deg, #00ccff, #9900cc, #ff0055, #ff6600, #33cc33, #00ccff); }
+            100% { background: linear-gradient(45deg, #9900cc, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc); }
         }
 
-        .skill-box {
-            background-color: #b2dfdb; /* Light cyan background for skills */
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px;
-            text-align: center;
-            font-weight: 500;
-            transition: background-color 0.3s, transform 0.3s;
-            font-size: 1.1rem; /* Increased font size */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            margin: 40px 0;
+            border: 5px solid transparent;
+            border-radius: 15px;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
+            animation: smoothGradientBorder 8s linear infinite;
         }
 
-        .skill-box:hover {
-            background-color: #80cbc4; /* Darker cyan on hover */
-            transform: scale(1.05); /* Slight zoom effect on hover */
-        }
-
-        .contact-item {
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-            padding: 20px;
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             border-radius: 10px;
         }
 
-        .contact-item:hover {
-            transform: translateY(-5px); /* Slight lift effect */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+        /* Content Section Styling */
+        .content-section {
+            padding: 50px 20px;
+            margin: 30px 0;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
 
-        .contact-item i {
-            color: #00796b; /* Primary color for icons */
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 3px solid #333;
+            border-radius: 15px;
+            transition: transform 0.3s, border 0.3s;
         }
 
-        .contact-item h5 {
+        .content-section img:hover {
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
+            background-clip: border-box;
+            transform: scale(1.05);
+        }
+
+        /* Center the About title */
+        .content-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        /* Flex container adjustment for alignment */
+        .content-section.d-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-section .image,
+        .content-section .text {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .content-section .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .content-section .text p {
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .custom-heading {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin: 20px 0;
+            }
+
+            .content-section .text p {
+                max-width: 100%;
+            }
+        }
+
+        /* Button Styling */
+        .btn-custom {
+            background-color: #28a745; /* Bright green color */
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
             font-weight: bold;
-            color: #00796b; /* Match icon color */
-            margin-bottom: 10px;
+            border: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            display: inline-block;
         }
 
-        .contact-item a {
-            color: #004d40;
+        .btn-custom:hover {
+            background-color: #218838; /* Darker green on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: #fff;
+            border-top: 2px solid #495057;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer p a {
+            color: #ffc107;
             text-decoration: none;
-            font-size: 1.2rem;
             transition: color 0.3s;
         }
 
-        .contact-item a:hover {
-            color: #00796b; /* Change color on hover */
+        footer p a:hover {
+            color: #fff;
         }
 
-        .btn-check-resume {
-            background-color: #00796b; /* Darker cyan for the button */
-            color: #ffffff; /* White text */
-            border: none;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
-        }
+        /* Center footer button */
+        .footer-button-container {
+            margin: 20px;
 
-        .btn-check-resume:hover {
-            background-color: #004d40; /* Even darker cyan on hover */
-            color: aqua;
-        }
-
-        .section-spacing {
-            margin-bottom: 50px; /* Adjust margin as needed */
-        }
-
-        .section-spacing:last-child {
-            margin-bottom: 0; /* No space below the last section */
-        }
-
-        .resume-section {
-            background-color: #f0f8ff; /* Light background color for resume page */
-            padding: 20px;
-            text-align: center;
-        }
-
-        .resume-buttons {
-            margin-top: 20px;
-        }
-
-        .resume-buttons a {
-            background-color: #00796b;
-            color: #ffffff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: background-color 0.3s;
-        }
-
-        .resume-buttons a:hover {
-            background-color: #004d40;
-        }
-
-        .footer-style {
-            background-color: #00796b; /* Darker cyan background for the footer */
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9rem; /* Adjust font size on smaller screens */
-        }
-
-        @media (max-width: 767px) {
-            .hero-content {
-                max-width: 100%; /* Full width on small screens */
-            }
-
-            .hero h1 {
-                font-size: 2rem; /* Smaller font size on mobile */
-            }
-
-            .hero p {
-                font-size: 1rem; /* Smaller font size on mobile */
-            }
-            .card-img-top {
-                height: 220px; /* Adjust height for smaller screens */
-                border-width: 3px; /* Thinner border for smaller screens */
-            }
+            display: flex;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-       <!-- Navbar -->
-       <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand" href="#">My Portfolio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#resume">Resume</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Heading at the top -->
+    <header>
+        <h1 class="custom-heading">FresherBot <a href="index.html" class="btn btn-custom">Back</a></h1>
+    </header>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>
-                Hello I'm <span class="font-weight-bold">Vinod Kumar</span> 
-            </h1>
-            <h2>a Web Developer</h2>
-            <p class="lead m-4">
-                Hi there! I'm Vinod Kumar, a web developer who brings dynamic, responsive, and innovative solutions to life. Dive into my portfolio to see how my creativity and technical expertise can transform your digital ideas into reality.
-            </p>
+    <!-- Video Container -->
+    <div class="container">
+        <div class="video-container">
+            <video autoplay muted loop>
+                <source src="/FresherBotFull.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
-        <!-- Profile Image -->
-        <img src="Lab Puppy.jpg" alt="Vinod Kumar" class="hero-image">
     </div>
 
-    <!-- Projects Section -->
-    <div id="projects" class="section section-spacing">
-        <div class="container">
-            <h2 class="text-center mb-5">Projects</h2> <!-- Added margin bottom -->
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="FresherDemo.png" alt="FresherBot Website Clone">
-                        <div class="card-body">
-                            <h5 class="card-title">FresherBot Website Clone</h5>
-                            <p class="card-text">I built a clone of the FresherBot website using HTML and CSS to show off my web development skills...</p>
-                            <div class="card-description">
-                                <p>I built a clone of the FresherBot website using HTML and CSS to show off my web development skills. The clone has a modern look with interactive features. It closely mirrors the original FresherBot site in both design and function. The clean, modern design and responsive layout ensure it looks great on any device, from desktops to smartphones.</p>
-                                <a href="FresherBot.html" class="btn btn-view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="FresherDemo.png" alt="Sentence Evaluator" >
-                        <div class="card-body">
-                            <h5 class="card-title">Sentence Evaluator</h5>
-                            <p class="card-text">Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This enhanced user interaction and engagement...</p>
-                            <div class="card-description">
-                                <p>Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This project enhanced user interaction and engagement. This project is a web application designed to process and analyze text input by users. It allows for various text transformations and provides detailed character count analysis. The use of advanced Java techniques and JSP for server-side processing ensures that the application is efficient and responsive, offering a seamless user experience.</p>
-                                <a href="#" class="btn btn-view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top" src="FresherDemo.png" alt="Blog Management Web Application">
-                        <div class="card-body">
-                            <h5 class="card-title">Blog Management Web Application</h5>
-                            <p class="card-text">Developxed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities...</p>
-                            <div class="card-description">
-                                <p>Developed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities. This application is a comprehensive blog management system built with Spring Boot. It includes features for creating, editing, and deleting blog posts, as well as user authentication to secure content management. The integration of HTML and JSP ensures a dynamic and user-friendly interface, while SQL is used for reliable data management. This project demonstrates my ability to develop full-stack applications with robust functionality.</p>
-                                <a href="#" class="btn btn-view-project">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- About the Project -->
+    <div class="container">
+        <div class="content-section">
+            <h2>About This Project</h2>
+            <p>This project is a dedicated clone of the FresherBot website, capturing its distinctive look and feel. While this clone aims to replicate the design and layout of the original, it focuses primarily on visual accuracy rather than functional completeness. The effort highlights our ability to mirror the aesthetics of an established web platform.</p>
+            <p>We have carefully designed this clone to reflect the layout, color scheme, and overall style of the FresherBot website. The design elements, such as the video sections, image placements, and text flow, have been recreated to maintain visual consistency and user experience. While not fully interactive, it offers a strong visual representation of the original.</p>
+            <p>This project serves as a demonstration of our web design skills, showcasing our attention to detail and design precision. Future updates may focus on enhancing functionality and interactivity based on feedback and further development, building upon the solid foundation laid by this clone.</p>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="container">
+        <!-- Section 1: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="/Fresher1.png" alt="Description of image 1">
+            </div>
+            <div class="text">
+                <p>The "Fresher Bot" homepage offers a sleek, modern interface for fresh graduates. It features easy access to "Job Openings," "Hackathons," and "Interview Prep," with intuitive navigation for candidates, employers, and colleges. The design is clean and inviting, perfect for job seekers.</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>The "Latest Openings" section features recent job postings with concise descriptions, locations, and "Active" status labels. The clean layout makes it easy to browse, with a link at the bottom to "View all jobs" for more options.</p>
+            </div>
+            <div class="image">
+                <img src="/Fresher2.png" alt="Description of image 2">
+            </div>
+        </div>
+
+        <!-- Section 3: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="/Fresher3.png" alt="Description of image 3">
+            </div>
+            <div class="text">
+                <p>I created this section to highlight why FresherBot is a great choice. It covers verified job openings, positive feedback, and clear terms to ensure trust and transparency.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>In this part, I've added resources for interview prep, including study materials, video lessons, and practice tests, to help you get ready for your next big opportunity.</p>
+            </div>
+            <div class="image">
+                <img src="/Fresher4.png" alt="Description of image 4">
+            </div>
+        </div>
+
+        <!-- Section 5: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="/Fresher5.png" alt="Description of image 5">
+            </div>
+            <div class="text">
+                <p>Here's a collection of feedback from satisfied users who found jobs through FresherBot. Their positive experiences highlight the effectiveness of the platform and the support provided.</p>
             </div>
         </div>
     </div>
 
-    <!-- About Section -->
-    <div id="about" class="section section-spacing bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">About Me</h2> <!-- Added margin bottom -->
-            <p class="text-center">I am a web developer with a passion for creating dynamic and responsive websites. My skills include a range of technologies that enable me to build both front-end and back-end solutions.</p>
-            <div class="text-center">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="skill-box">HTML</div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="skill-box">CSS</div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="skill-box">MySQL</div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="skill-box">Core Java</div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="skill-box">Advanced Java</div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="skill-box">Spring Boot</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Footer Button -->
+    <div class="footer-button-container">
+        <a href="index.html" class="btn btn-custom">Back</a>
     </div>
 
-    <!-- Resume Section -->
-    <div id="resume" class="section section-spacing">
-        <div class="container text-center">
-            <h2 class="mb-4">Resume</h2> <!-- Decreased margin bottom -->
-            <p>Check out my resume to understand more about my education, skills, and projects as I embark on my professional journey.</p>
-            <a href="resume.html" class="btn btn-check-resume">Check Resume</a>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <div id="contact" class="section section-spacing bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">Contact Me</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="contact-item bg-white p-4 rounded shadow-sm mb-4">
-                        <i class="fas fa-phone-alt fa-2x mb-3 text-primary"></i>
-                        <h5>Phone</h5>
-                        <a href="tel:+917995985776" class="d-block text-dark">+91 7995985776</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-item bg-white p-4 rounded shadow-sm mb-4">
-                        <i class="fas fa-envelope fa-2x mb-3 text-primary"></i>
-                        <h5>Email</h5>
-                        <a href="mailto:kingvinodkumart@gmail.com" class="d-block text-dark">kingvinodkumart@gmail.com</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="contact-item bg-white p-4 rounded shadow-sm mb-4">
-                        <i class="fab fa-instagram fa-2x mb-3 text-primary"></i>
-                        <h5>Instagram</h5>
-                        <a href="https://www.instagram.com/Kingvinod112" target="_blank" class="d-block text-dark">Kingvinod112</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Vinod Kumar. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <footer class="text-center py-4 footer-style">
-        <div class="container">
-            <p>&copy; 2024 Vinod Kumar. All rights reserved.</p>
-        </div>
-    </footer>
-    
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
