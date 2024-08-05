@@ -26,15 +26,7 @@
             text-transform: uppercase;
         }
 
-        /* Smooth gradient border animation for video */
-        @keyframes smoothGradientBorder {
-            0% { background: linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055); }
-            25% { background: linear-gradient(45deg, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055, #ff6600); }
-            50% { background: linear-gradient(45deg, #33cc33, #00ccff, #9900cc, #ff0055, #ff6600, #33cc33); }
-            75% { background: linear-gradient(45deg, #00ccff, #9900cc, #ff0055, #ff6600, #33cc33, #00ccff); }
-            100% { background: linear-gradient(45deg, #9900cc, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc); }
-        }
-
+        /* Video Container */
         .video-container {
             position: relative;
             width: 100%;
@@ -45,7 +37,7 @@
             border-radius: 15px;
             background: linear-gradient(white, white) padding-box,
                         linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
-            animation: smoothGradientBorder 8s linear infinite;
+            animation: smoothGradientBorder 9s linear infinite;
         }
 
         .video-container video {
@@ -56,6 +48,26 @@
             height: 100%;
             object-fit: cover;
             border-radius: 10px;
+        }
+
+        /* Loading Overlay Styling */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(5, 5, 5); /* Semi-transparent white */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .loading-overlay .spinner-border {
+            width: 3rem;
+            height: 3rem;
         }
 
         /* Content Section Styling */
@@ -181,10 +193,10 @@
         /* Center footer button */
         .footer-button-container {
             margin: 20px;
-
             display: flex;
             justify-content: center;
         }
+
     </style>
 </head>
 <body>
@@ -196,12 +208,18 @@
     <!-- Video Container -->
     <div class="container">
         <div class="video-container">
+            <div class="loading-overlay">
+                <div class="spinner-border text-light" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
             <video autoplay muted loop>
-                <source src="FresherBotFull.mp4" type="video/mp4">
+                <source src="/FresherBotFull.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
     </div>
+
 
     <!-- About the Project -->
     <div class="container">
@@ -218,7 +236,7 @@
         <!-- Section 1: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
-                <img src="Fresher1.png" alt="Description of image 1">
+                <img src="/Fresher1.png" alt="Description of image 1" loading="lazy">
             </div>
             <div class="text">
                 <p>The "Fresher Bot" homepage offers a sleek, modern interface for fresh graduates. It features easy access to "Job Openings," "Hackathons," and "Interview Prep," with intuitive navigation for candidates, employers, and colleges. The design is clean and inviting, perfect for job seekers.</p>
@@ -231,14 +249,14 @@
                 <p>The "Latest Openings" section features recent job postings with concise descriptions, locations, and "Active" status labels. The clean layout makes it easy to browse, with a link at the bottom to "View all jobs" for more options.</p>
             </div>
             <div class="image">
-                <img src="Fresher2.png" alt="Description of image 2">
+                <img src="/Fresher2.png" alt="Description of image 2" loading="lazy">
             </div>
         </div>
 
         <!-- Section 3: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
-                <img src="Fresher3.png" alt="Description of image 3">
+                <img src="/Fresher3.png" alt="Description of image 3" loading="lazy">
             </div>
             <div class="text">
                 <p>I created this section to highlight why FresherBot is a great choice. It covers verified job openings, positive feedback, and clear terms to ensure trust and transparency.</p>
@@ -251,14 +269,14 @@
                 <p>In this part, I've added resources for interview prep, including study materials, video lessons, and practice tests, to help you get ready for your next big opportunity.</p>
             </div>
             <div class="image">
-                <img src="Fresher4.png" alt="Description of image 4">
+                <img src="/Fresher4.png" alt="Description of image 4" loading="lazy">
             </div>
         </div>
 
         <!-- Section 5: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
-                <img src="Fresher5.png" alt="Description of image 5">
+                <img src="/Fresher5.png" alt="Description of image 5" loading="lazy">
             </div>
             <div class="text">
                 <p>Here's a collection of feedback from satisfied users who found jobs through FresherBot. Their positive experiences highlight the effectiveness of the platform and the support provided.</p>
