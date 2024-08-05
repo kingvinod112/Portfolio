@@ -142,13 +142,12 @@
             max-height: 60px; /* Height of visible text before hover */
             overflow: hidden;
             text-overflow: ellipsis; /* Show ellipsis for overflow text */
-            margin-bottom: 15px; /* Space for the button */
-            transition: max-height 0.3s ease, opacity 0.3s ease;
+            margin-bottom: 0px; /* Space for the button */
+            transition: max-height 0.3s ease;
         }
 
         .card:hover .card-text {
-            max-height: 0; /* Hide the small description on hover */
-            opacity: 0; /* Fade out the small description */
+            display: none; /* Hide the small description on hover */ 
         }
 
         .card-description {
@@ -176,7 +175,7 @@
             padding: 10px 20px;
             text-align: center;
             transition: background-color 0.3s;
-            margin-top: 20px; /* Pushes button to the bottom */
+            margin-bottom: 10px; /* Pushes button to the bottom */
         }
 
         .btn-view-project:hover {
@@ -308,7 +307,7 @@
 <body>
        <!-- Navbar -->
        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <a class="navbar-brand" href="#">My Portfolio</a>
+        <a class="navbar-brand" href="#">👑 My Portfolio 👑</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -360,8 +359,9 @@
                             <h5 class="card-title">FresherBot Website Clone</h5>
                             <p class="card-text">I built a clone of the FresherBot website using HTML and CSS to show off my web development skills...</p>
                             <div class="card-description">
-                                <p>I built a clone of the FresherBot website using HTML and CSS to show off my web development skills. The clone has a modern look with interactive features. It closely mirrors the original FresherBot site in both design and function. The clean, modern design and responsive layout ensure it looks great on any device, from desktops to smartphones.</p>
                                 <a href="FresherBot.html" class="btn btn-view-project">View Project</a>
+                                <p>I built a clone of the FresherBot website using HTML and CSS to show off my web development skills. The clone has a modern look with interactive features. It closely mirrors the original FresherBot site in both design and function. The clean, modern design and responsive layout ensure it looks great on any device, from desktops to smartphones.</p>
+                                
                             </div>
                         </div>
                     </div>
@@ -373,8 +373,8 @@
                             <h5 class="card-title">Sentence Evaluator</h5>
                             <p class="card-text">Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This enhanced user interaction and engagement...</p>
                             <div class="card-description">
-                                <p>Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This project enhanced user interaction and engagement. This project is a web application designed to process and analyze text input by users. It allows for various text transformations and provides detailed character count analysis. The use of advanced Java techniques and JSP for server-side processing ensures that the application is efficient and responsive, offering a seamless user experience.</p>
                                 <a href="#" class="btn btn-view-project">View Project</a>
+                                <p>Developed a dynamic website with advanced Java, HTML, and JSP for converting text to uppercase, lowercase, and analyzing character count. This project enhanced user interaction and engagement. This project is a web application designed to process and analyze text input by users. It allows for various text transformations and provides detailed character count analysis. The use of advanced Java techniques and JSP for server-side processing ensures that the application is efficient and responsive, offering a seamless user experience.</p>
                             </div>
                         </div>
                     </div>
@@ -386,8 +386,8 @@
                             <h5 class="card-title">Blog Management Web Application</h5>
                             <p class="card-text">Developxed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities...</p>
                             <div class="card-description">
-                                <p>Developed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities. This application is a comprehensive blog management system built with Spring Boot. It includes features for creating, editing, and deleting blog posts, as well as user authentication to secure content management. The integration of HTML and JSP ensures a dynamic and user-friendly interface, while SQL is used for reliable data management. This project demonstrates my ability to develop full-stack applications with robust functionality.</p>
                                 <a href="#" class="btn btn-view-project">View Project</a>
+                                <p>Developed a Spring Boot application for managing blogs, featuring capabilities to create, upload, edit, and delete posts. Users must log in or sign up to access blog creation and editing functionalities. This application is a comprehensive blog management system built with Spring Boot. It includes features for creating, editing, and deleting blog posts, as well as user authentication to secure content management. The integration of HTML and JSP ensures a dynamic and user-friendly interface, while SQL is used for reliable data management. This project demonstrates my ability to develop full-stack applications with robust functionality.</p>
                             </div>
                         </div>
                     </div>
