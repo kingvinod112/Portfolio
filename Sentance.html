@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FresherBot Page</title>
+    <title>Sentence Evaluator</title>
     <link rel="icon" href="v icon.png" type="image/png">
-    <!------------- Bootstrap CSS code -->
+    <!-- Bootstrap CSS CDN -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-       
+        /* General Body Styling */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #333;
@@ -27,7 +27,7 @@
             text-transform: uppercase;
         }
 
-        /*---------------------- Video Container */
+        /* Video Container */
         .video-container {
             position: relative;
             width: 100%;
@@ -51,7 +51,7 @@
             border-radius: 10px;
         }
 
-        /*---=== Loading Overlay Styling */
+        /* Loading Overlay Styling */
         .loading-overlay {
             position: absolute;
             top: 0;
@@ -71,7 +71,7 @@
             height: 3rem;
         }
 
-        /*======================= Content Section Styling */
+        /* Content Section Styling */
         .content-section {
             padding: 50px 20px;
             margin: 30px 0;
@@ -96,7 +96,7 @@
             transform: scale(1.05);
         }
 
-        /*------------------------------- Center the About title */
+        /* Center the About title */
         .content-section h2 {
             text-align: center;
             color: #333;
@@ -104,7 +104,7 @@
             font-size: 2.5rem;
         }
 
-        /*------------------------------- Flex container adjustment for alignment */
+        /* Flex container adjustment for alignment */
         .content-section.d-flex {
             display: flex;
             flex-wrap: wrap;
@@ -130,7 +130,7 @@
             line-height: 1.6;
         }
 
-        /*-------------------------------------- Responsive adjustments */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             .custom-heading {
                 font-size: 2.5rem;
@@ -146,7 +146,7 @@
             }
         }
 
-        /*--------------------------------------------------------- Button Styling */
+        /* Button Styling */
         .btn-custom {
             background-color: #28a745; /* Bright green color */
             color: #fff;
@@ -157,6 +157,7 @@
             border: none;
             transition: background-color 0.3s, box-shadow 0.3s;
             display: inline-block;
+            
         }
 
         .btn-custom:hover {
@@ -164,7 +165,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /*--------------------------------------- Footer Styling */
+        /* Footer Styling */
         footer {
             text-align: center;
             padding: 20px;
@@ -198,31 +199,53 @@
             justify-content: center;
         }
 
+        /* Container for Video and Button */
+        .video-button-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+           
+        }
+
+        .video-button-container .btn-custom {
+            position: absolute;
+            bottom: -10px; /* Adjust based on your preference */
+            left: 50%;
+            transform: translateX(-50%);
+            
+            
+        }
+        
+
     </style>
 </head>
 <body>
-    <!-------------------------------- Heading at the top -->
+    <!-- Heading at the top -->
     <header>
-        <h1 class="custom-heading">Sentance Evaluator <a href="https://kingvinod112.github.io/Portfolio/" class="btn btn-custom">Back</a></h1>
+        <h1 class="custom-heading">Sentence Evaluator  <a href="index.html" class="btn btn-custom">Back</a></h1>
     </header>
 
-    <!----------------------- Video Container -->
+    <!-- Video Container with Button -->
     <div class="container">
-        <div class="video-container">
-            <div class="loading-overlay">
-                <div class="spinner-border text-light" role="status">
-                    <span class="sr-only">Loading...</span>
+        <div class="video-button-container">
+            <div class="video-container">
+                <div class="loading-overlay">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
                 </div>
+                <video autoplay muted loop>
+                    <source src="SentanceFull.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-            <video autoplay muted loop>
-                <source src="SentanceFull.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <a href="Sent.html" class="btn btn-custom">View Project</a>
         </div>
     </div>
 
-
-    <!-------------------------------- About the Project -->
+    <!-- About the Project -->
     <div class="container">
         <div class="content-section">
             <h2>About This Project</h2>
@@ -230,9 +253,9 @@
         </div>
     </div>
 
-    <!--------------------------- Content Sections -->
+    <!-- Content Sections -->
     <div class="container">
-        <!-------------------------- Section 1: Image on the left, text on the right -->
+        <!-- Section 1: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
                 <img src="S1.png" alt="Description of image 1" loading="lazy">
@@ -242,7 +265,7 @@
             </div>
         </div>
 
-        <!---------------------------------- Section 2: Text on the left, image on the right -->
+        <!-- Section 2: Text on the left, image on the right -->
         <div class="content-section d-flex flex-column flex-md-row reverse">
             <div class="text">
             <p>This image features the text input area alongside a dropdown menu for selecting the desired conversion type. It highlights how users can enter their text and choose from various formatting options effortlessly.</p>
@@ -252,7 +275,7 @@
             </div>
         </div>
 
-        <!-------------------------------------- Section 3: Image on the left, text on the right -->
+        <!-- Section 3: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
                 <img src="S3.png" alt="Description of image 3" loading="lazy">
@@ -262,7 +285,7 @@
             </div>
         </div>
 
-        <!-------------------------------------- Section 4: Text on the left, image on the right -->
+        <!-- Section 4: Text on the left, image on the right -->
         <div class="content-section d-flex flex-column flex-md-row reverse">
             <div class="text">
                 <p>This image demonstrates the text converted to lowercase, showing how every letter is changed to a small letter. It's a practical example of how text appears when standardized to lowercase.</p>
@@ -272,17 +295,17 @@
             </div>
         </div>
 
-        <!-------------------------------------- Section 5: Image on the left, text on the right -->
+        <!-- Section 5: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
                 <img src="S5.png" alt="Description of image 5" loading="lazy">
             </div>
             <div class="text">
-                <p>The image depicts the text converted to camel case, where the initial letter of each word is capitalized. This format is particularly useful for coding and specific text presentations.</p>
+                <p>The image depicts the text converted to camel case, where the initial letter of each word is capitalized except for the first one. This format is particularly useful for coding and specific text presentations.</p>
             </div>
         </div>
 
-         <!-------------------------------------- Section 6: Text on the left, image on the right -->
+         <!-- Section 6: Text on the left, image on the right -->
          <div class="content-section d-flex flex-column flex-md-row reverse">
             <div class="text">
                 <p>This image presents the character count of the entered text. It provides a clear count of all characters, including spaces, offering insight into the length and density of the content.</p>
@@ -292,7 +315,7 @@
             </div>
         </div>
 
-        <!-------------------------------------- Section 7: Image on the left, text on the right -->
+        <!-- Section 7: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
                 <img src="S7.png" alt="Description of image 5" loading="lazy">
@@ -302,7 +325,7 @@
             </div>
         </div>
 
-         <!-------------------------------------- Section 8: Text on the left, image on the right -->
+         <!-- Section 8: Text on the left, image on the right -->
          <div class="content-section d-flex flex-column flex-md-row reverse">
             <div class="text">
                 <p>In this part, I've added resources for interview prep, including study materials, video lessons, and practice tests, to help you get ready for your next big opportunity.</p>
@@ -312,7 +335,7 @@
             </div>
         </div>
 
-        <!-------------------------------------- Section 9: Image on the left, text on the right -->
+        <!-- Section 9: Image on the left, text on the right -->
         <div class="content-section d-flex flex-column flex-md-row">
             <div class="image">
                 <img src="S9.png" alt="Description of image 5" loading="lazy">
@@ -323,18 +346,14 @@
         </div>
     </div>
 
-    
-
-    <!-------------------------- Footer Button -->
+    <!-- Footer Button -->
     <div class="footer-button-container">
-        <a href="https://kingvinod112.github.io/Portfolio/" class="btn btn-custom">Back</a>
+        <a href="index.html" class="btn btn-custom">Back</a>
     </div>
 
-    <!------------------------- Footer -->
+    <!-- Footer -->
     <footer>
         <p>© 2024 Vinod Kumar. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
-
-   
 </body>
 </html>
