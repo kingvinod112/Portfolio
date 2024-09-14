@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Blog</title>
+    <link rel="icon" href="v icon.png" type="image/png">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Heading Styling */
+        .custom-heading {
+            text-align: center;
+            color: #000;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-transform: uppercase;
+        }
+
+        /* Video Container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding-top: 52.25%; /* 16:9 aspect ratio */
+            margin: 40px 0;
+            border: 5px solid transparent;
+            border-radius: 15px;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
+            animation: smoothGradientBorder 9s linear infinite;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Loading Overlay Styling */
+        .loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(5, 5, 5); /* Semi-transparent white */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .loading-overlay .spinner-border {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        /* Content Section Styling */
+        .content-section {
+            padding: 50px 20px;
+            margin: 30px 0;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .content-section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border: 3px solid #333;
+            border-radius: 15px;
+            transition: transform 0.3s, border 0.3s;
+        }
+
+        .content-section img:hover {
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
+            background-clip: border-box;
+            transform: scale(1.05);
+        }
+
+        /* Center the About title */
+        .content-section h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        /* Flex container adjustment for alignment */
+        .content-section.d-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content-section .image,
+        .content-section .text {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .content-section .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .content-section .text p {
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .custom-heading {
+                font-size: 2.5rem;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin: 20px 0;
+            }
+
+            .content-section .text p {
+                max-width: 100%;
+            }
+        }
+
+        /* Button Styling */
+        .btn-custom {
+            background-color: #28a745; /* Bright green color */
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            border: none;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            
+        }
+
+        .btn-custom:hover {
+            background-color: #218838; /* Darker green on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #343a40;
+            color: #fff;
+            border-top: 2px solid #495057;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        footer p a {
+            color: #ffc107;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer p a:hover {
+            color: #fff;
+        }
+
+        /* Center footer button */
+        .footer-button-container {
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Container for Video and Button */
+        .video-button-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+           
+        }
+
+        .video-button-container .btn-custom {
+            position: absolute;
+            bottom: -10px; /* Adjust based on your preference */
+            left: 50%;
+            transform: translateX(-50%);
+            
+            
+        }
+        
+
+    </style>
+</head>
+<body>
+    <!-- Heading at the top -->
+    <header>
+        <h1 class="custom-heading">Blog Management System  <a href="javascript:history.back()" class="btn btn-custom">Back</a></h1>
+    </header>
+
+    <!-- Video Container with Button -->
+    <div class="container">
+        <div class="video-button-container">
+            <div class="video-container">
+                <div class="loading-overlay">
+                    <div class="spinner-border text-light" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <video autoplay muted loop>
+                    <source src="SentanceFull.mp" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <a href="javascript:history.back()" class="btn btn-custom">Back</a>
+        </div>
+    </div>
+
+    <!-- About the Project -->
+    <div class="container">
+        <div class="content-section">
+            <h2>About This Project</h2>
+           <p>I developed a robust Spring Boot application designed for comprehensive blog management, featuring a range of functionalities to enhance both user and admin experiences. The application supports the creation, uploading, editing, and deletion of blog posts, with a secure authentication system requiring users to log in or sign up to access these features.
+            <br><br>
+            For user management, the application includes encrypted password storage to ensure user privacy and security. Users can create and manage their own blog posts, including editing content and updating images. However, they are restricted from altering the author name of their posts, which is reserved for admin users only.
+            <br><br>
+            Admins possess extended privileges within the system. They can create, edit, or delete any blog posts, including those of other users, and modify associated images. Additionally, admins have the authority to change the author names on posts. The admin interface also includes functionalities to view and manage user information, such as the total number of users and detailed profiles, although sensitive details like passwords remain inaccessible due to encryption, maintaining user privacy.
+            <br><br>
+            The application utilizes HTML and JSP to deliver a dynamic, user-friendly interface, while SQL is employed for reliable data management and storage. This project not only demonstrates my proficiency in developing full-stack applications but also highlights my ability to implement secure, scalable, and user-centric features within a blog management system.</p>
+        </div>
+
+    <!-- Content Sections -->
+    <div class="container">
+        <!-- Section 1: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B1.jpg" alt="Description of image 1" loading="lazy">
+            </div>
+            <div class="text">
+                <p><b>Science and Technology:</b> Dive into the latest advancements in science and technology. Explore articles on cutting-edge research, breakthrough innovations, and tech trends that are shaping the future. Whether you're interested in space exploration, artificial intelligence, or technological gadgets, this category keeps you informed and inspired.</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+            <p><b>Nature:</b> Discover the beauty and complexity of the natural world. From breathtaking landscapes and environmental conservation to fascinating wildlife and ecosystems, our nature category offers a window into the wonders of our planet. Learn about nature’s marvels and the importance of preserving our environment.</p>
+            </div>
+            <div class="image">
+                <img src="B2.jpg" alt="Description of image 2" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 3: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B3.jpg" alt="Description of image 3" loading="lazy">
+            </div>
+            <div class="text">
+                <p><b>Animals:</b> Delve into the diverse and intriguing world of animals. Our articles cover everything from pet care tips and animal behavior to conservation efforts and exotic species. Whether you’re an animal lover or just curious about the animal kingdom, this section provides valuable insights and heartwarming stories.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p><b>Food:</b> Savor the flavors of our culinary world. Explore delicious recipes, cooking tips, and food trends that will tantalize your taste buds. From gourmet dishes and healthy eating to global cuisines and food culture, our food category is a feast for both the eyes and the palate.</p>
+            </div>
+            <div class="image">
+                <img src="B4.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 5: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B5.jpg" alt="Description of image 5" loading="lazy">
+            </div>
+            <div class="text">
+                <p><b>Blogs Button:</b> Easily navigate to our collection of blog posts. Stay updated with the latest entries and explore a diverse range of topics and discussions.
+                   <br><br>
+                    <b>Login Button:</b> Access your personalized dashboard, manage your blog posts, and engage with the community by logging into your account.
+                    
+                </p>
+            </div>
+        </div>
+
+         <!-- Section 6: Text on the left, image on the right -->
+         <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>Clicking on the <b>Login</b> button will direct you to our secure login page. Here, you will be prompted to enter your <b>email address</b> and <b>password</b> to access your account.</p>
+            </div>
+            <div class="image">
+                <img src="B6.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 7: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B7.jpg" alt="Description of image 5" loading="lazy">
+            </div>
+            <div class="text">
+                <p>
+                    The Login page allows you to access your account by entering your registered email address and password. If the credentials you provide are incorrect, you will see an <b>“Invalid email address or password”</b> message. For users who have forgotten their password, there is a Forgot Password? link to initiate a password reset. New users can click on the Register button to sign up for an account.
+                    </p>
+            </div>
+        </div>
+
+         <!-- Section 8: Text on the left, image on the right -->
+         <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>For new users, the <b>Register</b> button on the login page allows you to easily sign up and create a new account. Simply click the button and provide your <b>Name, Email address, Password,</b> and <b>Phone number</b>. Once you've entered these details, you'll join our community and gain access to all the features of our blog management system.</p>
+            </div>
+            <div class="image">
+                <img src="B8.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 9: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B9.jpg" alt="Description of image 5" loading="lazy">
+            </div>
+            <div class="text">
+                <p>
+                    If you’ve forgotten your password, don’t worry! Simply click on the <b>Forgot Password?</b> link, and follow the easy steps to reset it. You’ll need to provide a <b>valid email address</b> and <b>phone number</b> for verification. After entering and confirming your new password, you'll receive a success message if the email and phone number are validated. You will then be redirected to the login page, where you can log in with your new password.</p>
+            </div>
+        </div>
+
+        <!-- Section 10: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>Once you log in, you will be redirected to the <b>Blogs</b> page, where you'll see a warm <b>Welcome</b> message along with your <b>name</b>. From this page, you can start creating new blogs by clicking on the <b>Create Blog</b> button. You can also manage your existing content through the <b>My Blog</b> button, which allows you to edit your own posts. Additionally, use the <b>Search</b> bar to find specific blogs or explore various topics.</p>
+            </div>
+            <div class="image">
+                <img src="B10.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 11: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B11.jpg" alt="Description of image 1" loading="lazy">
+            </div>
+            <div class="text">
+                <p> When you click on the <b>Create Blog</b> button, you'll be prompted to log in if you aren't already. If you are logged in, you will be redirected to the <b>Create Blog</b> page. Here, you can optionally upload an <b>image file</b> for your blog, and then enter the <b>blog title</b> and <b>blog content</b>. As a user, your name will automatically be set as the <b>author name</b> and cannot be changed. Once you submit your blog, it will be uploaded successfully, and you'll be redirected back to the <b>Blogs</b> page with a message stating <b>“New Blog Added”</b>.</p>
+            </div>
+        </div>
+
+        <!-- Section 12: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+            <p>After creating a blog, you will see a <b>"New Blog Added"</b> message, and your blog will appear at the top of the <b>Blogs</b> page. Your <b>name</b> will be displayed as the <b>author name</b>, and you’ll see that the <b>title</b> and <b>image</b> (if uploaded) are perfectly displayed.</p>
+            </div>
+            <div class="image">
+                <img src="B12.jpg" alt="Description of image 2" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 13: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B13.jpg" alt="Description of image 3" loading="lazy">
+            </div>
+            <div class="text">
+                <p>You can manage your own blogs by clicking on the <b>My Blog</b> button. This section displays a list of your blogs, each with <b>Edit</b> and <b>Delete</b> icons. Use these icons to update or remove your blogs as needed.</p>
+            </div>
+        </div>
+
+        <!-- Section 14: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>By clicking the <b>Edit</b> icon on your blog, you will be taken to the update page. Here, you can view your existing blog details, including the previously uploaded image displayed on the side. You have the option to change the image, or if you prefer to remove it, select the <b>“Yes”</b> option to delete it. You can also update the <b>title</b> and <b>content</b> as desired. Note that as a logged-in user, you cannot change the <b>author name</b>; it will always be set to your name automatically.</p>
+            </div>
+            <div class="image">
+                <img src="B14.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 15: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B15.jpg" alt="Description of image 5" loading="lazy">
+            </div>
+            <div class="text">
+                <p>After updating your blog, you will be redirected to the <b>My Blog</b> section, where you'll see a <b>"Blog Updated"</b> message confirming that your changes have been saved. You can review the updated details, including any changes to the <b>title</b>, <b>content</b>, and <b>image</b>. The <b>author name</b> will remain as your name, ensuring consistency.</p>
+            </div>
+        </div>
+
+         <!-- Section 16: Text on the left, image on the right -->
+         <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>In the <b>My Blog</b> section, you can delete your own blog by clicking the <b>Delete</b> icon next to the blog you wish to remove. A pop-up alert will appear asking, <b>"Are you sure you want to delete [Your Blog Name]?"</b> You will have the option to <b>Confirm</b> if you wish to proceed with the deletion or <b>Cancel</b> if you decide not to delete the blog.</p>
+            </div>
+            <div class="image">
+                <img src="B16.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 17: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B17.jpg" alt="Description of image 5" loading="lazy">
+            </div>
+            <div class="text">
+                <p>After deleting a blog, you will be redirected to the <b>My Blog</b> section, where you will see a <b>"Blog Deleted"</b> message confirming that the blog has been removed. If there are no remaining blogs in this section, you will be prompted with a message saying, <b>"You have no blogs. Create a Blog."</b> This invites you to create a new blog to continue contributing content.</p>
+            </div>
+        </div>
+
+         <!-- Section 18: Text on the left, image on the right -->
+         <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>When an admin logs in, they will be welcomed with a <b>"Welcome Admin"</b> message on the <b>Blogs</b> section. Additionally, a special <b>Check Users</b> button will be visible, which is accessible only to the admin. This button allows the admin to manage user accounts.
+                <br><br>
+                    As an admin, you have full access to the system, including the ability to <b>edit</b> or <b>delete</b> any blog across the platform. This ensures that the admin can oversee and manage all content effectively.</p>
+            </div>
+            <div class="image">
+                <img src="B18.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+
+        <!-- Section 19: Image on the left, text on the right -->
+        <div class="content-section d-flex flex-column flex-md-row">
+            <div class="image">
+                <img src="B19.jpg" alt="Description of image 5" loading="lazy">
+            </div>
+            <div class="text">
+                <p>When the admin clicks the <b>Edit</b> icon on any blog in the <b>Blogs</b> section, they can modify the <b>title</b>, <b>content</b>, and <b>image</b> of the blog. Unlike regular users, the admin also has the ability to change the <b>author name</b>. Additionally, the admin can <b>delete</b> any blog, including those of specific users. This feature is crucial for removing any content that is deemed inappropriate or violates the platform's guidelines.</p>
+            </div>
+        </div>
+
+        <!-- Section 20: Text on the left, image on the right -->
+        <div class="content-section d-flex flex-column flex-md-row reverse">
+            <div class="text">
+                <p>When the admin clicks the <b>Check Users</b> button in the <b>Blogs</b> section, they can view detailed information for all users, including their <b>name</b>, <b>email</b>, and <b>phone number</b>. However, the admin cannot see user passwords, as these are kept private and encrypted to ensure user security.
+                    <br><br>
+                    If necessary, the admin can <b>delete</b> a specific user from the list. Clicking the <b>Delete</b> button will trigger a confirmation pop-up alert, asking, <b>"Are you sure you want to delete this user?"</b> After clicking <b>Confirm</b>, the user will be permanently removed from the list. Once deleted, the user will no longer have login credentials and will need to <b>register</b> or <b>sign up</b> for a new account to access the platform again.</p>
+            </div>
+            <div class="image">
+                <img src="B20.jpg" alt="Description of image 4" loading="lazy">
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Button -->
+    <div class="footer-button-container">
+        <a href="index.html" class="btn btn-custom">Back</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Vinod Kumar. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
