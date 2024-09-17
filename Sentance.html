@@ -355,5 +355,16 @@
     <footer>
         <p>© 2024 Vinod Kumar. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </footer>
+
+    <script>
+        document.addEventListener('visibilitychange', function() {
+            var video = document.querySelector('video');
+            if (document.hidden) {
+                video.pause();
+            } else {
+                video.play();
+            }
+        });
+    </script>
 </body>
 </html>
