@@ -27,7 +27,7 @@
             text-transform: uppercase;
         }
 
-        /* Video Container */
+                /* Video Container */
         .video-container {
             position: relative;
             width: 100%;
@@ -39,9 +39,12 @@
             background: linear-gradient(white, white) padding-box,
                         linear-gradient(45deg, #ff0055, #ff6600, #33cc33, #00ccff, #9900cc, #ff0055);
             animation: smoothGradientBorder 9s linear infinite;
+            overflow: hidden; /* Ensure content doesn't overflow the container */
         }
 
-        .video-container video {
+        /* Style for both video and iframe */
+        .video-container video,
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -51,25 +54,25 @@
             border-radius: 10px;
         }
 
-        /* Loading Overlay Styling */
+        /* Optional: Loading overlay */
         .loading-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgb(5, 5, 5); /* Semi-transparent white */
+            background: rgba(0, 0, 0, 0.5); /* Slightly dark background */
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 15px;
-            transition: opacity 0.3s ease-in-out;
         }
 
-        .loading-overlay .spinner-border {
+        /* Optional: Spinner styles */
+        .spinner-border {
             width: 3rem;
             height: 3rem;
         }
+
 
         /* Content Section Styling */
         .content-section {
@@ -227,23 +230,36 @@
         <h1 class="custom-heading">Blog Management System  <a href="javascript:history.back()" class="btn btn-custom">Back</a></h1>
     </header>
 
-    <!-- Video Container with Button -->
-    <div class="container">
-        <div class="video-button-container">
-            <div class="video-container">
-                <div class="loading-overlay">
-                    <div class="spinner-border text-light" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
+   <!-- Video Container with Button -->
+<div class="container">
+    <div class="video-button-container">
+        <div class="video-container">
+            <div class="loading-overlay">
+                <div class="spinner-border text-light" role="status">
+                    <span class="sr-only">Loading...</span>
                 </div>
-                <video autoplay muted loop>
-                    <source src="BlogVideo.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
             </div>
-            <a href="javascript:history.back()" class="btn btn-custom">Back</a>
+            <video autoplay muted loop>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Added iframe element -->
+        
+             <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube-nocookie.com/embed/lZYMqzIkWYc?autoplay=1&mute=1&loop=1&playlist=lZYMqzIkWYc&controls=0"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        
         </div>
+        <a href="javascript:history.back()" class="btn btn-custom">Back</a>
     </div>
+</div>
 
     <!-- About the Project -->
     <div class="container">
@@ -476,8 +492,7 @@
     <div class="footer-button-container">
         <a href="index.html" class="btn btn-custom">Back</a>
     </div>
-    </div>
-    
+</div>
     <!-- Footer -->
     <footer>
         <p>© 2024 Vinod Kumar. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
